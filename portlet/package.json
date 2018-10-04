@@ -1,0 +1,35 @@
+{
+	"name": "react-portlet",
+	"version": "1.0.0",
+	"description": "react-portlet",
+	"devDependencies": {
+		"liferay-npm-bundler": "^2.0.0",
+		"liferay-npm-build-support": "^2.0.0",
+		"copy-webpack-plugin": "^4.0.0",
+		"webpack": "^4.0.0",
+		"webpack-cli": "^3.0.0",
+		"webpack-dev-server": "^3.0.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.0.0",
+		"babel-loader": "^7.0.0"
+	},
+	"dependencies": {
+		"react": "^16.0.0",
+		"react-dom": "^16.0.0"
+	},
+	"scripts": {
+		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",
+		"copy-assets": "lnbs-copy-assets",
+		"deploy": "npm run build && lnbs-deploy",
+		"start": "lnbs-start"
+	},
+	"portlet": {
+		"javax.portlet.display-name": "portlet-react",
+		"javax.portlet.security-role-ref": "power-user,user",
+		"com.liferay.portlet.instanceable": true,
+		"com.liferay.portlet.display-category": "category.sample",
+		"com.liferay.portlet.header-portlet-css": "/css/styles.css"
+	},
+	"main": "index.js"
+}
