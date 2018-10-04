@@ -1,0 +1,72 @@
+import AsyncImage from '../../components/AsyncImage';
+import liferayConfig from '../../util/liferay-config';
+import React from 'react';
+import {axiosRequest, fetch} from '../../util/request';
+import {Link} from 'react-router-dom';
+
+export default class Photos extends React.Component {
+	state = {
+		photos: []
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.fetchPhotos();
+	}
+
+	fetchPhotos = () => {
+		fetch(
+			`/api-proxy/o/api/p/documents-repository/${
+				liferayConfig.contentSpaceId
+			}/document`
+		).then(({items}) => {
+			this.setState({
+				photos: items
+			});
+		});
+	};
+
+	render() {
+		const {photos} = this.state;
+
+		return (
+			<div>
+				<div className="jumbotron">
+					<div className="container">
+						<h1 className="display-4">Photos</h1>
+
+						<Link
+							className="btn btn-primary btn-lg"
+							role="button"
+							to="/photos/create"
+						>
+							Upload New Photo
+						</Link>
+					</div>
+				</div>
+
+				<div className="card-columns">
+					{photos.map((photo, i) => {
+						return (
+							<div className="card" key={i}>
+								<AsyncImage
+									src={`/api-proxy/${photo.contentUrl.replace(
+										'http://127.0.0.1:8080/',
+										''
+									)}`}
+								/>
+
+								<div className="card-body">
+									<h5 className="card-title">
+										{photo.title}
+									</h5>
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</div>
+		);
+	}
+}
