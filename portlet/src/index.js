@@ -1,4 +1,7 @@
-
+// import './index.css';
+import App from './App';
+import React from 'react'; // eslint-disable-line
+import ReactDOM from 'react-dom';
 
 /**
  * This is the main entry point of the portlet. It receives a hash of values
@@ -21,6 +24,10 @@
  * @param  {Object} params a hash with values of interest to the portlet
  * @return {void}
  */
-export default function main({portletNamespace, contextPath, portletElementId}) {
-    
+export default function main({
+	portletNamespace,
+	contextPath,
+	portletElementId
+}) {
+	ReactDOM.render(<App />, document.getElementById(portletElementId));
 }

@@ -1,5 +1,5 @@
 {
-	"liferayDir": "/Users/bryceosterhaus/liferay/bundles/liferay-portal-master/",
+	"liferayDir": "/Users/bryceosterhaus/Downloads/liferay-portal-master",
 	"webpack": {
 		"rules": [
 			{
