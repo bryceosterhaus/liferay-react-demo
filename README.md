@@ -10,8 +10,8 @@ Need Liferay 7.1+ and the `com.liferay.frontend.js.portlet.extender` module
 
 1. Navigate to [portlet](./portlet)
 2. Install: `npm install`
-3. Set `liferayDir` in [.npmbuildrc](./.npmbuildrc)
-4. Set `contentSpaceId` in [liferay-config](./src/util/liferay-config.js)
+3. Set `liferayDir` in [.npmbuildrc](./portlet/.npmbuildrc)
+4. Set `contentSpaceId` in [liferay-config](./portlet/src/util/liferay-config.js)
 5. Deploy: `npm run deploy`
 
 ### Starting Standalone
@@ -19,7 +19,7 @@ Need Liferay 7.1+ and the `com.liferay.frontend.js.portlet.extender` module
 1. Navigate to [standalone](./standalone)
 2. Install: `npm install`
 3. Create OAuth2 application in Portal. [Portal OAuth2 Setup](./oauth-setup.png)
-4. Set `clientId`(from OAuth app) and `contentSpaceId` in [liferay-config](./src/util/liferay-config.js)
+4. Set `clientId`(from OAuth app) and `contentSpaceId` in [liferay-config](./standalone/src/util/liferay-config.js)
 5. Start: `npm run start`
 
 ## Caveats
