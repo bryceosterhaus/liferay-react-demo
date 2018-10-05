@@ -46,3 +46,4 @@ Need Liferay 7.1+ and the `com.liferay.frontend.js.portlet.extender` module
 -   `/api/jsonws` filled in for the gaps that `/o/api` was missing
 -   Adding a file via `Liferay.Service` didn't work, which means I had to create a separate axios request. [See Upload Page](./standalone/src/pages/photos/Upload.js)
 -   There were a lot of required parameters that I didn't find helpful when using `/api/jsonws`.
+-   I couldn't get [create-react-app](https://github.com/facebook/create-react-app) working in the portlet context.I tried adding the proper packages to the package.json so that it deployed as a portlet but the build version of CRA seemed inconsistant with what liferay and the bundler wanted.
