@@ -28,6 +28,7 @@ Need Liferay 7.1+ and the `com.liferay.frontend.js.portlet.extender` module
 
 -   Have to disable SPA module (Liferay Frontend JS SPA Web)
 -   Had to use [hash routing](https://reacttraining.com/react-router/web/api/HashRouter) because browser history routing breaks after page reload.
+    -   It'd be great if there was some sort of manifest that the module could provide that would determine which routes portal should ignore.
 -   Unable to use custom webpack loaders or custom build process
 -   Unable to use dynamic imports and [code splitting](https://webpack.js.org/guides/code-splitting/)
 -   Requires some internal knowledge of `liferay-npm-build-support` and `liferay-npm-bundler`
