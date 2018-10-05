@@ -7,17 +7,45 @@ import {
 	Switch
 } from 'react-router-dom';
 
-import BlogPost from './pages/blogs/Post';
-import Blogs from './pages/blogs';
-import EditBlogPost from './pages/blogs/Edit';
-import EditPerson from './pages/people/Edit';
-import Home from './pages/index';
-import Login from './pages/Login';
-import Logout from './pages/Logout';
-import People from './pages/people';
-import Person from './pages/people/Person';
-import Photos from './pages/photos';
-import Upload from './pages/photos/Upload';
+function asyncComponent(importComponent) {
+	class AsyncComponent extends React.Component {
+		constructor(props) {
+			super(props);
+
+			this.state = {
+				component: null
+			};
+		}
+
+		async componentDidMount() {
+			const {default: component} = await importComponent();
+
+			this.setState({
+				component: component
+			});
+		}
+
+		render() {
+			const C = this.state.component;
+
+			return C ? <C {...this.props} /> : null;
+		}
+	}
+
+	return AsyncComponent;
+}
+
+const BlogPost = asyncComponent(() => import('./pages/blogs/Post'));
+const Blogs = asyncComponent(() => import('./pages/blogs'));
+const EditBlogPost = asyncComponent(() => import('./pages/blogs/Edit'));
+const EditPerson = asyncComponent(() => import('./pages/people/Edit'));
+const Home = asyncComponent(() => import('./pages/index'));
+const Login = asyncComponent(() => import('./pages/Login'));
+const Logout = asyncComponent(() => import('./pages/Logout'));
+const People = asyncComponent(() => import('./pages/people'));
+const Person = asyncComponent(() => import('./pages/people/Person'));
+const Photos = asyncComponent(() => import('./pages/photos'));
+const Upload = asyncComponent(() => import('./pages/photos/Upload'));
 
 const AuthRoute = ({component: ComponentName, ...other}) => (
 	<Route
