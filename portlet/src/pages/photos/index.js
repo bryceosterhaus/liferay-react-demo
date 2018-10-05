@@ -55,7 +55,7 @@ export default class Photos extends React.Component {
 							<div className="card" key={i}>
 								<img
 									className="card-img-top"
-									src={`documents/${photo.repositoryId}/0/${
+									src={`/documents/${photo.repositoryId}/0/${
 										photo.fileName
 									}/${photo.uuid}`}
 								/>

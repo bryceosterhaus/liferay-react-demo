@@ -27,7 +27,7 @@ Need Liferay 7.1+ and the `com.liferay.frontend.js.portlet.extender` module
 ### Portlet
 
 -   Have to disable SPA module (Liferay Frontend JS SPA Web)
--   Client routing breaks after navigating and then full page reload
+-   Had to use [hash routing](https://reacttraining.com/react-router/web/api/HashRouter) because browser history routing breaks after page reload.
 -   Unable to use custom webpack loaders or custom build process
 -   Requires some internal knowledge of `liferay-npm-build-support` and `liferay-npm-bundler`
 
